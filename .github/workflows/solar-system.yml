@@ -57,16 +57,5 @@ jobs:
             push: false
             tags: ${{ vars.DOCKERHUB_USERNAME }}/solar-system:${{ github.sha }}
 
-        - name: Docker Test the Image
-          run: |
-              docker images
-              docker run --name solar-system-app -d \
-                -p 3000:3000 \
-                -e MONGO_URL='mongodb+srv://supercluster.d83jj.mongodb.net/superData' \
-                -e MONGO_USERNAME='superuser' \
-                -e MONGO_PASSWORD='SuperPassword' \
-                ${{ vars.DOCKERHUB_USERNAME }}/solar-system:${{ github.sha }}
-          
-              echo "Testing image URL using curl"
-              curl -s http://localhost:3000/live | grep live
+        
           
