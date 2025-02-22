@@ -82,12 +82,11 @@ jobs:
             method: kubeconfig
             kubeconfig: ${{ secrets.KUBECONFIG }}
 
-        - name: Fetch the cluster details
+        - name: Fetch the Cluster Details
           run: |
-            kubectl version --short
-            echo -------------------------
-            kubectl get nodes
-
+              kubectl version
+              echo -------------------------
+              kubectl get nodes
 
 
             
