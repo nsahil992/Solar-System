@@ -65,11 +65,7 @@ jobs:
                 -e MONGO_URL='mongodb+srv://supercluster.d83jj.mongodb.net/superData' \
                 -e MONGO_USERNAME='superuser' \
                 -e MONGO_PASSWORD='SuperPassword' \
-                ${{ secrets.DOCKERHUB_USERNAME }}/solar-system:${{ github.sha }}
-          
-              # Wait for the container to start up properly
-              echo "Waiting for the app to be ready..."
-              sleep 10
+                ${{ vars.DOCKERHUB_USERNAME }}/solar-system:${{ github.sha }}
           
               echo "Testing image URL using curl"
               curl -s http://localhost:3000/live | grep live
